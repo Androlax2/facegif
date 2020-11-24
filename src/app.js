@@ -41,7 +41,12 @@ class FaceGif {
 	_startVideoStream() {
 		if (!navigator.mediaDevices.getUserMedia) return;
 
-		navigator.mediaDevices.getUserMedia({video: true, audio: false})
+		navigator.mediaDevices.getUserMedia({
+				video: {
+					facingMode: 'user'
+				},
+				audio: false
+		})
 		.then(stream => this.$video.srcObject = stream)
 		.catch(() => console.error('Something went wrong with the video streaming.'));
 	}
