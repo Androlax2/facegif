@@ -73,7 +73,7 @@ body {
         grid-template-columns: 1fr;
     }
     .facegif__video {
-        position: absolute;
+        position: fixed;
         top: 5px;
         left: 5px;
         width: 100px;
@@ -90,13 +90,13 @@ body {
 }
 .facegif__gif--one {
     grid-area: gif-one;
-    background-color: red;
+    background-color: #FAFAFA;
 }
 .facegif__gif--two {
     grid-area: gif-two;
-    background-color: green;
+    background-color: #FAFAFA;
 }
 .facegif__gif--three {
     grid-area: gif-three;
-    background-color: yellow;
+    background-color: #FAFAFA;
 }
