@@ -6,7 +6,6 @@ class FaceGif {
 	constructor(interval = 500) {
 		this.interval = interval;
 		this.$video = document.querySelector('.facegif__video');
-		this.expression = 'neutral';
 		this._init();
 	}
 
@@ -104,7 +103,11 @@ class FaceGif {
 						.withFaceExpressions();
 
 						if (detections && detections[0] && detections[0].expressions) {
-							const randomGifs = this._randomGifs(this._getExpression(detections[0].expressions), 3);
+							const actualExpression = this._getExpression(detections[0].expressions);
+							if (actualExpression === this.previousExpression) return;
+
+							this.previousExpression = actualExpression;
+							const randomGifs = this._randomGifs(actualExpression, 3);
 							document.querySelectorAll('.facegif__gif').forEach(($gif, index) => $gif.style.backgroundImage = `url(${randomGifs[index]})`);
 						}
 					}, this.interval);
