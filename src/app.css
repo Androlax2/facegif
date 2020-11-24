@@ -68,7 +68,6 @@ body {
 }
 @media only screen and (max-width: 850px) {
     .facegif {
-        position: relative;
         grid-template-areas: "gif-one" "gif-two" "gif-three";
         grid-template-columns: 1fr;
     }
