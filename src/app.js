@@ -41,6 +41,10 @@ class FaceGif {
 	_startVideoStream() {
 		if (!navigator.mediaDevices.getUserMedia) return;
 
+		this.$video.setAttribute('autoplay', '');
+		this.$video.setAttribute('muted', '');
+		this.$video.setAttribute('playsinline', '');
+
 		navigator.mediaDevices.getUserMedia({
 				video: {
 					facingMode: 'user'
